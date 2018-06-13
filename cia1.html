@@ -1,0 +1,34 @@
+<html>
+<head><title>Cia firebase</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet">
+</head>
+<body style="background-color:#ededed">
+
+<h1 style="font-family:Raleway; text-align:center; font-size:10vw;padding-top:20vh;color:#afafaf;">Sensor reading:</h1>
+<h1 id="someid" style="font-family:Raleway; text-align:center; font-size:10vw;color:#afafaf;"><img src="ripple.svg"></h1>
+<!--firebase intial---!-->	
+ 
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+<script type='text/javascript' src='.git/config.js'></script>
+<script>
+  // Initialize Firebase
+
+  firebase.initializeApp(config);
+
+  var h1change = document.getElementById('someid');
+  var dbRef = firebase.database().ref().child('text');
+  dbRef.on('value',function(snapshot){
+  	h1change.innerText = snapshot.val();
+  });
+
+
+
+</script>
+
+</body>
+</html>
